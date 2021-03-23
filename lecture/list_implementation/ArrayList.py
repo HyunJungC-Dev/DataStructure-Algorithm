@@ -7,6 +7,7 @@ class ArrayList:
         self.capacity = capacity
         self.length = 0
         self.array = array.array('l', [0]*capacity)
+        return True
         # 타입코드 l 은 파이썬에서 int, byte 4
         # capacity 만큼 0을 할당
 
@@ -39,6 +40,7 @@ class ArrayList:
             self.array[0] = value
         # 삽입이 끝났다면 length를 하나 더해준다.
         self.length += 1
+        return True
 
     # 리스트의 맨 뒤에 개체를 삽입
     def append(self, value):
@@ -59,6 +61,7 @@ class ArrayList:
             # 맨 뒤에 새로운 요소 추가
             self.array[self.length] = value
         self.length += 1
+        return True
 
     def set_head(self, index):
         # 접근할 수 없는 index라면
@@ -74,6 +77,7 @@ class ArrayList:
         self.capacity = self.capacity - index
         # 길이도 그만큼 빼준다.
         self.length = self.length - index
+        return True
 
     def access(self, index):
         # 접근할 수 없는 index라면
@@ -114,6 +118,7 @@ class ArrayList:
             # 옆으로 밀어서 생긴 자리에 새로운 값을 삽입한다.
             self.array[index] = value
         self.length += 1
+        return True
 
     def remove(self, index):
         # 접근할 수 없는 index라면
@@ -124,6 +129,7 @@ class ArrayList:
         for i in range(index, self.length-1):
             self.array[i] = self.array[i+1]
         self.length -= 1
+        return True
 
     # 배열 리스트 전체 출력
     def print(self):
@@ -133,6 +139,7 @@ class ArrayList:
             if i != self.length-1:
                 print(", ", end="")
         print('] ( Array Length :', self.length, ')')
+        return True
 
 
 print("---------------Test Code---------------")
