@@ -61,6 +61,11 @@ class ArrayList:
         self.length += 1
 
     def set_head(self, index):
+        # 접근할 수 없는 index라면
+        if(index >= self.length):
+            # 범위를 벗어났다는 error를 띄운다.
+            print("Out of Range!!!")
+            return
         # 해당 인덱스 이전을 슬라이싱으로 잘라
         # 해당 인덱스부터 맨 뒤까지의 요소만 남긴다.
         self.array = self.array[index:]
@@ -71,9 +76,19 @@ class ArrayList:
         self.length = self.length - index
 
     def access(self, index):
+        # 접근할 수 없는 index라면
+        if(index >= self.length):
+            # 범위를 벗어났다는 error를 띄운다.
+            return "Out of Range!!!"
         return self.array[index]
 
     def insert(self, index, value):
+        # insert 는 index = self.length 인 경우에도 가능하므로
+        # = 맨 뒤의 삽입이니까
+        # index > self.length 인 경우에 범위를 벗어났다는 error를 띄운다.
+        if(index > self.length):
+            print("Out of Range!!!")
+            return
         # 배열 리스트가 꽉 차있어 새로운 요소를 넣을 수 없다면
         #  = 배열 리스트의 용량과 배열 리스트의 길이가 같다.
         if self.capacity == self.length:
@@ -101,6 +116,11 @@ class ArrayList:
         self.length += 1
 
     def remove(self, index):
+        # 접근할 수 없는 index라면
+        if(index >= self.length):
+            # 범위를 벗어났다는 error를 띄운다.
+            print("Out of Range!!!")
+            return
         for i in range(index, self.length-1):
             self.array[i] = self.array[i+1]
         self.length -= 1
@@ -113,6 +133,7 @@ class ArrayList:
             if i != self.length-1:
                 print(", ", end="")
         print('] ( Array Length :', self.length, ')')
+
 
 print("---------------Test Code---------------")
 # 배열 리스트 생성
@@ -180,7 +201,7 @@ print("10. 인덱스 1에 있는 요소 삭제")
 myArrayList.remove(1)
 myArrayList.print()
 print("\n10.의 경우, \n완전히 잘 지워진 것처럼 보이지만\n메모리를 보면")
-print(myArrayList.array,"로")
+print(myArrayList.array, "로")
 print("\nlength보다 커서 length로 접근하지 못하는 곳에는 \n아직 4라는 값이 남아있다.")
 
 # 맨 뒤에 삽입하는 경우
@@ -192,3 +213,28 @@ print("위와 같이 length로 접근하는 것도 문제없고")
 
 print("\n메모리를 봐도 아래와 같이 잘 덮어씌워진 걸 볼 수 있다.")
 print(myArrayList.array)
+print("---------------------------------------")
+
+print("!!! 매개 변수로 index를 받는 함수들의 경우 - Out of Range Error 체크!!!\n")
+
+# 배열 리스트의 첫 머리를 변경
+print("12. 배열 리스트의 첫 머리를 인덱스 범위를 벗어나는 index 6 로 변경하려 시도")
+myArrayList.set_head(6)
+myArrayList.print()
+print("---------------------------------------")
+# 인덱스 범위를 벗어나는 요소 접근
+print("13. 인덱스 범위를 벗어나는 index 5에 접근 시도")
+print(myArrayList.access(5))
+myArrayList.print()
+print("---------------------------------------")
+
+# 범위를 벗어난 인덱스에 새로운 요소 삽입 시도
+print("14. 인덱스 7 에 새로운 요소 100 삽입 시도")
+myArrayList.insert(7, 100)
+myArrayList.print()
+print("---------------------------------------")
+
+# 범위를 벗어난 인덱스에 해당하는 요소를 제거 시도
+print("15. 인덱스 4에 있는 요소 삭제 시도")
+myArrayList.remove(4)
+myArrayList.print()
