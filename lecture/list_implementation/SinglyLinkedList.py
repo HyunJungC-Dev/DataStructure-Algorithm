@@ -142,7 +142,7 @@ mySinglyLinkedList.print()
 print("---------------------------------------")
 
 # 싱글 링크드 리스트의 맨 앞에 요소를 삽입
-print("3.배싱글 링크드열 리스트의 맨 앞에 요소 1을 삽입")
+print("3.싱글 링크드열 리스트의 맨 앞에 요소 1을 삽입")
 mySinglyLinkedList.prepend(1)
 mySinglyLinkedList.print()
 print("---------------------------------------")
