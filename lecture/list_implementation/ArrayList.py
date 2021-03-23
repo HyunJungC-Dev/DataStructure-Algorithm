@@ -65,7 +65,7 @@ class ArrayList:
         if(index >= self.length):
             # 범위를 벗어났다는 error를 띄운다.
             print("Out of Range!!!")
-            return
+            return False
         # 해당 인덱스 이전을 슬라이싱으로 잘라
         # 해당 인덱스부터 맨 뒤까지의 요소만 남긴다.
         self.array = self.array[index:]
@@ -88,7 +88,7 @@ class ArrayList:
         # index > self.length 인 경우에 범위를 벗어났다는 error를 띄운다.
         if(index > self.length):
             print("Out of Range!!!")
-            return
+            return False
         # 배열 리스트가 꽉 차있어 새로운 요소를 넣을 수 없다면
         #  = 배열 리스트의 용량과 배열 리스트의 길이가 같다.
         if self.capacity == self.length:
@@ -120,7 +120,7 @@ class ArrayList:
         if(index >= self.length):
             # 범위를 벗어났다는 error를 띄운다.
             print("Out of Range!!!")
-            return
+            return False
         for i in range(index, self.length-1):
             self.array[i] = self.array[i+1]
         self.length -= 1
