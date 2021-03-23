@@ -173,6 +173,7 @@ class DoublyLinkedList:
                 print(", ", end='')
             curr = curr.next
         print(']')
+        return True
 
 
 print("---------------Test Code---------------")
