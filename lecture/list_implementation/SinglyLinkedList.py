@@ -105,6 +105,9 @@ class SinglyLinkedList:
         # 애초에 싱글 리크드 리스트가 비어있으면 불가능한 작업
         if self.is_empty():
             return False
+        if index == 0:
+            self.head = self.head.next
+            return True
         curr = self.head
         before_node = None
         for i in range(index):
