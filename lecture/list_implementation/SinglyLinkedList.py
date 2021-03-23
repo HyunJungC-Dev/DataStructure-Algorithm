@@ -80,6 +80,12 @@ class SinglyLinkedList:
         return curr.value
 
     def insert(self, index, value):
+        if self.is_empty() and index > 0:
+            print("Out of Range")
+            return False
+        if index == 0:
+            self.prepend(value)
+            return True
         curr = self.head
         before_node = None
         for i in range(index):
