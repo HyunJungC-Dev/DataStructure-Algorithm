@@ -27,6 +27,7 @@ class LinkedQueue:
         # 맨 앞 노드 삭제
         # 만약 비어 있다면
         if self.head is None:
+            print("Underflow")
             return None
         # 아무튼 하나라도 뺄 게 있다면
         value = self.head.value
@@ -49,8 +50,46 @@ class LinkedQueue:
         return self.head.value
 
     def print(self):
+        print('<- ', end='')
         curr = self.head
         while curr is not None:
             print(curr.value, end=' ')
             curr = curr.next
-        print()
+        print('<-')
+
+
+print("------------------------")
+myLinkedQueue = LinkedQueue()
+print("1. LinkedQueue에 1 삽입")
+myLinkedQueue.put(1)
+myLinkedQueue.print()
+print("2. LinkedQueue에 2 삽입")
+myLinkedQueue.put(2)
+myLinkedQueue.print()
+print("3. LinkedQueue에 3 삽입")
+myLinkedQueue.put(3)
+myLinkedQueue.print()
+print("4. LinkedQueue에서 get")
+print("get : ", myLinkedQueue.get())
+myLinkedQueue.print()
+print("5. LinkedQueue에서 get")
+print("get : ", myLinkedQueue.get())
+myLinkedQueue.print()
+print("6. LinkedQueue에서 get")
+print("get : ", myLinkedQueue.get())
+myLinkedQueue.print()
+print("7. 비어있는 LinkedQueue에서 get - Underflow")
+print("get : ", myLinkedQueue.get())
+myLinkedQueue.print()
+print("8. LinkedQueue에 5 put")
+myLinkedQueue.put(5)
+myLinkedQueue.print()
+print("9. LinkedQueue에 6 put")
+myLinkedQueue.put(6)
+myLinkedQueue.print()
+print("10. LinkedQueue에 7 put")
+myLinkedQueue.put(7)
+myLinkedQueue.print()
+print("11. LinkedQueue에서 peek")
+print("peek : ", myLinkedQueue.peek())
+myLinkedQueue.print()
