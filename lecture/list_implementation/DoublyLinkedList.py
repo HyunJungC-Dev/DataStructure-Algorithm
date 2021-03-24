@@ -126,6 +126,7 @@ class DoublyLinkedList:
             before_node = curr.prev
             after_node = curr
             before_node.next = Node(value, before_node, after_node)
+            after_node.prev = before_node.next
         return True
 
     def remove(self, index):
@@ -159,10 +160,10 @@ class DoublyLinkedList:
                 # tail을 before_node로 바꿔줘야한다.
                 # before_node가 마지막 노드이므로
                 self.tail = before_node
-            # None이 아니면
             else:
-                # 앞의 노드를 가리켜준다.
                 after_node.prev = before_node
+
+            # None이 아니면
 
     def print(self):
         print('[', end='')
@@ -173,6 +174,18 @@ class DoublyLinkedList:
                 print(", ", end='')
             curr = curr.next
         print(']')
+        return True
+
+    # 뒤에서부터 프린트
+    def print_reverse(self):
+        print('[', end='')
+        curr = self.tail
+        while curr is not None:
+            print(curr.value, end='')
+            if curr.prev is not None:
+                print(", ", end='')
+            curr = curr.prev
+        print('] (Reversed)')
         return True
 
 
@@ -236,26 +249,31 @@ myDoublyLinkedList.remove(1)
 myDoublyLinkedList.print()
 print("---------------------------------------")
 
+# 뒤에서부터 print
+print("12. 뒤에서 부터 프린트")
+myDoublyLinkedList.print_reverse()
+print("---------------------------------------")
+
 print("!!! 매개 변수로 index를 받는 함수들의 경우 - Out of Range Error 체크!!!\n")
 
 # 더블 링크드 리스트의 첫 머리를 변경
-print("12. 더블 링크드 리스트의 첫 머리를 인덱스 범위를 벗어나는 index 6 로 변경하려 시도")
+print("13. 더블 링크드 리스트의 첫 머리를 인덱스 범위를 벗어나는 index 6 로 변경하려 시도")
 myDoublyLinkedList.set_head(6)
 myDoublyLinkedList.print()
 print("---------------------------------------")
 # 인덱스 범위를 벗어나는 요소 접근
-print("13. 인덱스 범위를 벗어나는 index 5에 접근 시도")
+print("14. 인덱스 범위를 벗어나는 index 5에 접근 시도")
 print(myDoublyLinkedList.access(5))
 myDoublyLinkedList.print()
 print("---------------------------------------")
 
 # 범위를 벗어난 인덱스에 새로운 요소 삽입 시도
-print("14. 인덱스 7 에 새로운 요소 100 삽입 시도")
+print("15. 인덱스 7 에 새로운 요소 100 삽입 시도")
 myDoublyLinkedList.insert(7, 100)
 myDoublyLinkedList.print()
 print("---------------------------------------")
 
 # 범위를 벗어난 인덱스에 해당하는 요소를 제거 시도
-print("15. 인덱스 4에 있는 요소 삭제 시도")
+print("16. 인덱스 4에 있는 요소 삭제 시도")
 myDoublyLinkedList.remove(4)
 myDoublyLinkedList.print()
