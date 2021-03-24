@@ -9,13 +9,16 @@ class LinearQueue:
         self.array = array.array('l', [0]*capacity)
 
     def put(self, value):
-        pass
+        self.array[self.rear] = value
+        self.rear += 1
 
     def get(self):
-        pass
+        get_value = self.array[self.front]
+        self.front += 1
+        return get_value
 
     def peek(self):
-        pass
+        return self.array[self.front]
 
     def print(self):
         pass
