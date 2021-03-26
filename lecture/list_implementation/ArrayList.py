@@ -7,7 +7,6 @@ class ArrayList:
         self.capacity = capacity
         self.length = 0
         self.array = array.array('l', [0]*capacity)
-        return True
         # 타입코드 l 은 파이썬에서 int, byte 4
         # capacity 만큼 0을 할당
 
