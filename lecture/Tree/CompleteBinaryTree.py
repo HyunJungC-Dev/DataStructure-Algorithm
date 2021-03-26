@@ -31,8 +31,17 @@ class BinaryTree:
         if right_idx <= len(self.array)-1:
             self.inorder(right_idx)
 
-    def postorder(self):
-        pass
+    # left->right->node
+    def postorder(self, idx):
+        if idx > len(self.array)-1:
+            return True
+        left_idx = idx*2
+        right_idx = idx*2+1
+        if left_idx <= len(self.array)-1:
+            self.postorder(left_idx)
+        if right_idx <= len(self.array)-1:
+            self.postorder(right_idx)
+        print(self.array[idx])
 
     def bfs(self, value):
         return False
@@ -48,3 +57,5 @@ print("# Preorder")
 mybt.preorder(1)
 print("# Inorder")
 mybt.inorder(1)
+print("# Postorder")
+mybt.postorder(1)
