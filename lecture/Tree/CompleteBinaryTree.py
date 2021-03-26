@@ -43,7 +43,11 @@ class BinaryTree:
             self.postorder(right_idx)
         print(self.array[idx])
 
+    # 해당 value의 존재 여부 확인
     def bfs(self, value):
+        for i in range(1, len(self.array)-1):
+            if self.array[i] == value:
+                return True
         return False
 
     def dfs(self, value):
@@ -59,3 +63,5 @@ print("# Inorder")
 mybt.inorder(1)
 print("# Postorder")
 mybt.postorder(1)
+print("# BFS")
+print("is {value} in Tree? : {result}".format(value=3, result=mybt.bfs(3)))
