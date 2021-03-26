@@ -9,8 +9,6 @@ class BinaryTree:
 
     # node->left->right
     def preorder(self, idx):
-        if idx > len(self.array)-1:
-            return True
         print(self.array[idx])
         left_idx = idx*2
         right_idx = idx*2+1
@@ -21,8 +19,6 @@ class BinaryTree:
 
     # left->node->right
     def inorder(self, idx):
-        if idx > len(self.array)-1:
-            return True
         left_idx = idx*2
         right_idx = idx*2+1
         if left_idx <= len(self.array)-1:
@@ -33,8 +29,6 @@ class BinaryTree:
 
     # left->right->node
     def postorder(self, idx):
-        if idx > len(self.array)-1:
-            return True
         left_idx = idx*2
         right_idx = idx*2+1
         if left_idx <= len(self.array)-1:
@@ -50,8 +44,7 @@ class BinaryTree:
                 return True
         return False
 
-    def dfs(self, value):
-        return False
+    def dfs(self, value, idx):
 
 
 arr = [n for n in range(1, 11)]
@@ -65,3 +58,4 @@ print("# Postorder")
 mybt.postorder(1)
 print("# BFS")
 print("is {value} in Tree? : {result}".format(value=3, result=mybt.bfs(3)))
+print("# DFS")
