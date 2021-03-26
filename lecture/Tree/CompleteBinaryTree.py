@@ -45,6 +45,17 @@ class BinaryTree:
         return False
 
     def dfs(self, value, idx):
+        if value == self.array[idx]:
+            return True
+        left_idx = idx*2
+        right_idx = idx*2+1
+        if left_idx <= len(self.array) - 1:
+            if self.dfs(value, left_idx) is True:
+                return True
+
+        if right_idx <= len(self.array)-1:
+            if self.dfs(value, right_idx) is True:
+                return True
 
 
 arr = [n for n in range(1, 11)]
@@ -57,5 +68,6 @@ mybt.inorder(1)
 print("# Postorder")
 mybt.postorder(1)
 print("# BFS")
-print("is {value} in Tree? : {result}".format(value=3, result=mybt.bfs(3)))
+print("is {value} in Tree? : {result}".format(value=3, result=mybt.bfs(13)))
 print("# DFS")
+print("is {value} in Tree? : {result}".format(value=3, result=mybt.dfs(11, 1)))
