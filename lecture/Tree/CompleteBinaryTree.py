@@ -7,6 +7,7 @@ class BinaryTree:
         # 계산의 편의성을 위해 사용하지 않는다.
         self.array = array.array('l', [-1]+arr)
 
+    # node->left->right
     def preorder(self, idx):
         if idx > len(self.array)-1:
             return True
@@ -18,8 +19,17 @@ class BinaryTree:
         if right_idx <= len(self.array)-1:
             self.preorder(right_idx)
 
-    def inorder(self):
-        pass
+    # left->node->right
+    def inorder(self, idx):
+        if idx > len(self.array)-1:
+            return True
+        left_idx = idx*2
+        right_idx = idx*2+1
+        if left_idx <= len(self.array)-1:
+            self.inorder(left_idx)
+        print(self.array[idx])
+        if right_idx <= len(self.array)-1:
+            self.inorder(right_idx)
 
     def postorder(self):
         pass
@@ -31,8 +41,10 @@ class BinaryTree:
         return False
 
 
-arr = [n for n in range(1,11)]
+arr = [n for n in range(1, 11)]
 mybt = BinaryTree(arr)
 print(mybt.array.tolist())
 print("# Preorder")
 mybt.preorder(1)
+print("# Inorder")
+mybt.inorder(1)
