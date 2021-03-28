@@ -43,7 +43,6 @@ class BinaryTree:
         else:
             curr_node = self.root
 
-            stack.append(self.root)
             while True:
                 while curr_node is not None:
                     stack.append(curr_node)
@@ -51,7 +50,7 @@ class BinaryTree:
                 curr_node = stack.pop()
                 print(curr_node.value, end=' ')
                 curr_node = curr_node.right
-                if not stack:
+                if curr_node is None and not stack:
                     break
 
             print()
