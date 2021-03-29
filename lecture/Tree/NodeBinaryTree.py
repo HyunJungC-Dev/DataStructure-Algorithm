@@ -24,8 +24,8 @@ class BinaryTree:
         if self.root is None:
             return None
         else:
-            stack.append(self.root)
-            while stack:
+            stack.append(self.root)  # root 노드에서 시작
+            while stack:  # stack이 비어있지 않는 동안
                 curr_node = stack.pop()
                 print(curr_node.value, end=' ')
                 if curr_node.right is not None:
@@ -45,13 +45,13 @@ class BinaryTree:
 
             while True:
                 while curr_node is not None:
-                    stack.append(curr_node)
-                    curr_node = curr_node.left
-                curr_node = stack.pop()
-                print(curr_node.value, end=' ')
-                curr_node = curr_node.right
-                if curr_node is None and not stack:
-                    break
+                    stack.append(curr_node)  # root node에서 시작해서
+                    curr_node = curr_node.left  # 모든 가장 왼쪽 자식을 stack에 넣는다.
+                curr_node = stack.pop()  # 가장 아래 왼쪽 자식부터 꺼내서
+                print(curr_node.value, end=' ')  # 출력하고
+                curr_node = curr_node.right  # 방금 꺼낸 자식의 오른쪽 자식부터 위를 반복한다.
+                if curr_node is None and not stack:  # 스택도 비어있고, curr_node도 None이라서 더이사 stack에 들어갈 것이 없을 때
+                    break  # while문을 나간다. = 종료한다. (스택만 비어있는 상태는 있을 수 있다.)
 
             print()
 
