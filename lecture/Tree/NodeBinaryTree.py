@@ -41,7 +41,7 @@ class BinaryTree:
         if self.root is None:
             return None
         else:
-            curr_node = self.root
+            curr_node = self.root  # curr_node는 root부터 시작
 
             while True:
                 while curr_node is not None:
