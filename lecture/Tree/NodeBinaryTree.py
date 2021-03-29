@@ -52,30 +52,31 @@ class BinaryTree:
                 curr_node = curr_node.right  # 방금 꺼낸 자식의 오른쪽 자식부터 위를 반복한다.
                 if curr_node is None and not stack:  # 스택도 비어있고, curr_node도 None이라서 더이상 stack에 들어갈 것이 없을 때
                     break  # while문을 나간다. = 종료한다. (스택만 비어있는 상태는 있을 수 있다.)
-
             print()
 
     # left-> right -> node
+    # 왼쪽 아래부터 올라오고, 다시 오른쪽 아래부터 올라온다.
     def postorder(self):
         stack = []
         if self.root is None:
             return None
         else:
-            curr_node = self.root
+            curr_node = self.root  # root부터 시작해서
             while True:
-                while curr_node is not None:
-                    if curr_node.right is not None:
-                        stack.append(curr_node.right)
-                    stack.append(curr_node)
-                    curr_node = curr_node.left
-                curr_node = stack.pop()
+                while curr_node is not None:  # 여기서 curr_node는 최대한 왼쪽 노드이다.
+                    if curr_node.right is not None:  # 오른쪽이 있다면
+                        stack.append(curr_node.right)  # 왼쪽 보고 볼 오른쪽을 넣어준다.
+                    stack.append(curr_node)  # 오른쪽 보기 전 볼 왼쪽을 넣어준다.
+                    curr_node = curr_node.left  # 왼쪽으로 curr_node를 바꿔준다.
+                curr_node = stack.pop()  # 그러면 가장 마지막에 들어간 가장 왼쪽부터 pop한다.
+                # 왼쪽을 pop하고, 스택의 맨위가 오른쪽일때, 그때 그 오른쪽을 pop해준다.
                 if curr_node.right is not None and stack and curr_node.right.value == stack[-1].value:
-                    stack.pop()
-                    stack.append(curr_node)
-                    curr_node = curr_node.right
+                    stack.pop()  # 오른쪽을 pop한다.
+                    stack.append(curr_node)  # curr_node=stack.pop()에서 뺀 것.
+                    curr_node = curr_node.right  # 그리고 오른쪽으로 curr_node를 옮겨준다.
                 else:
-                    print(curr_node.value, end=' ')
-                    curr_node = None
+                    print(curr_node.value, end=' ')  # 오른쪽이 없다면 자신를 볼 차례이다.
+                    curr_node = None  # 이건 curr_node = stack.pop()만 반복하겠다는 뜻.
                 if not stack:
                     break
             print()
