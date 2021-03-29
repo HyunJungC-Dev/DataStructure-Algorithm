@@ -55,7 +55,15 @@ class BinaryTree:
             print()
 
     # left-> right -> node
-    # 왼쪽 아래부터 올라오고, 다시 오른쪽 아래부터 올라온다.
+    """
+    왼쪽 아래부터 올라오고, 다시 오른쪽 아래부터 올라온다.
+    (right -> node)를 left로 내려가면서 stack에 삽입
+    stack에서 pop하면서,
+    stack의 top이 node라면,
+    left가 있다면 left 를 stack에 삽입
+    right가 있다면 그 right를 pop
+    """
+
     def postorder(self):
         stack = []
         if self.root is None:
