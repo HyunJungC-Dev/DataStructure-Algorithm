@@ -50,13 +50,12 @@ class BinaryTree:
                 curr_node = stack.pop()  # 가장 아래 왼쪽 자식부터 꺼내서
                 print(curr_node.value, end=' ')  # 출력하고
                 curr_node = curr_node.right  # 방금 꺼낸 자식의 오른쪽 자식부터 위를 반복한다.
-                if curr_node is None and not stack:  # 스택도 비어있고, curr_node도 None이라서 더이사 stack에 들어갈 것이 없을 때
+                if curr_node is None and not stack:  # 스택도 비어있고, curr_node도 None이라서 더이상 stack에 들어갈 것이 없을 때
                     break  # while문을 나간다. = 종료한다. (스택만 비어있는 상태는 있을 수 있다.)
 
             print()
 
     # left-> right -> node
-
     def postorder(self):
         stack = []
         if self.root is None:
