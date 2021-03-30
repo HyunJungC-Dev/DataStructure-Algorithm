@@ -82,20 +82,7 @@ class BinarySearchTree:
                 parent = node
                 node = node.right
                 direction = 'right'
-        return parent, node, direction
-
-    def insert_sol(self, value):
-        node, parent, direction = self.__serch(value)
-        if parent is None:
-            self.root = Node(value)
-            return True
-        if node:  # search 에서 node를 찾았으면, 그건 넣지 않기 때문에
-            return False  # return False이다.
-        elif direction == 'left':
-            parent.left = Node(value, None, None)
-        else:
-            parent.right = Node(value, None, None)
-        return True
+        return node, parent, direction
 
     def insert(self, value):
         if self.root is None:
@@ -118,10 +105,6 @@ class BinarySearchTree:
                         curr_node = curr_node.right
                 elif value == curr_node.value:
                     return False
-
-    def serach_sol(self, value):
-        node, _, _ = self.__serch(value)
-        return node
 
     def search(self, value):
         if self.root is None:
@@ -146,7 +129,7 @@ class BinarySearchTree:
         return node, parent
 
     def remove(self, value):
-        parent, node, direction = self.__serch(value)
+        node, parent, direction = self.__serch(value)
 
         if node is None:
             return False
@@ -223,14 +206,6 @@ class BinarySearchTree:
                 if new_root_parent:
                     new_root_parent.left = None
 
-            # 자식이 없으면 그냥 삭제
-
-            # 자식이 하나 있다면, 그 자식이 원래 노드의 위치가 된다.
-
-            # 자식이 둘 다 있다면,
-            # 왼쪽 subtree의 가장 오른쪽에 있는 노드를 올린다.
-            # 오른쪽 subtree의 가장 왼쪽에 있는 노드를 올린다
-
 
 mybst = BinarySearchTree()
 
@@ -241,11 +216,11 @@ for el in x:
     mybst.insert(el)
 mybst.root.display()
 # print(mybst._BinarySearchTree__findMin(mybst.root)[0].value)
-# random.shuffle(x)B
-for el in x:
-    print(el)
-    mybst.remove(el)
-    mybst.root.display()
+# # random.shuffle(x)B
+# for el in x:
+#     print(el)
+#     mybst.remove(el)
+#     mybst.root.display()
 
 # mybst.remove(10)
 # mybst.root.display()
