@@ -9,9 +9,9 @@ class BinaryTree:
 
     # node->left->right
     def preorder(self, idx):
-        print(self.array[idx])
         left_idx = idx*2
         right_idx = idx*2+1
+        print(self.array[idx])
         if left_idx <= len(self.array) - 1:
             self.preorder(left_idx)
         if right_idx <= len(self.array)-1:

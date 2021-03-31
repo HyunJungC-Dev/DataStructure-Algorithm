@@ -128,83 +128,14 @@ class BinarySearchTree:
             node = node.left
         return node, parent
 
+    def __connect(self, child, parent, direction):
+        if direction == 'left':
+            parent.left = child
+        else:
+            parent.right = child
+
     def remove(self, value):
-        node, parent, direction = self.__serch(value)
-
-        if node is None:
-            return False
-        if node.left is None and node.right is None:
-            if parent is not None:
-                if direction == 'left':
-                    parent.left = None
-                    del node
-                else:
-                    parent.right = None
-                    del node
-            else:
-                del node
-
-        elif node.left and node.right is None:
-            if parent is not None:
-                if direction == 'left':
-                    parent.left = node.left
-                    del node
-                    return True
-                else:
-                    parent.right = node.left
-                    del node
-                    return True
-            else:
-                self.root = node.left
-                del node
-        elif node.right and node.left is None:
-            if parent is not None:
-                if direction == 'left':
-                    parent.left = node.right
-                    del node
-                    return True
-                else:
-                    parent.right = node.right
-                    del node
-                    return True
-            else:
-                self.root = node.right
-                del node
-
-        elif node.left and node.right:
-            if parent is not None:
-                if direction == 'left':
-                    removed_node = parent.left
-                    parent.left, parent_left_parent = self.__findMin(
-                        node.right)
-
-                    parent.left.left = removed_node.left
-                    parent.left.right = removed_node.right
-                    if parent_left_parent:
-                        parent_left_parent.left = None
-                    del node
-                    return True
-                else:
-                    removed_node = parent.right
-                    parent.right, parent_right_parent = self.__findMin(
-                        node.right)
-                    if parent.right.right:
-                        parent_right_parent.left = parent.right.right
-
-                    parent.right.left = removed_node.left
-                    parent.right.right = removed_node.right
-
-                    if parent_right_parent:
-                        parent_right_parent.left = None
-                    del node
-                    return True
-            else:
-                removed_node = self.root
-                self.root, new_root_parent = self.__findMin(self.root.right)
-                self.root.left = removed_node.left
-                self.root.right = removed_node.right
-                if new_root_parent:
-                    new_root_parent.left = None
+        pass
 
 
 mybst = BinarySearchTree()
@@ -216,11 +147,13 @@ for el in x:
     mybst.insert(el)
 mybst.root.display()
 # print(mybst._BinarySearchTree__findMin(mybst.root)[0].value)
-# # random.shuffle(x)B
+random.shuffle(x)
 # for el in x:
 #     print(el)
 #     mybst.remove(el)
 #     mybst.root.display()
+mybst.remove(5)
+mybst.root.display()
 
 # mybst.remove(10)
 # mybst.root.display()
