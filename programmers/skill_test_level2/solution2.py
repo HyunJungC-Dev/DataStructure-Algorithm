@@ -1,11 +1,10 @@
 def solution(cacheSize, cities):
     cache = []
     running_time = 0
-    num_cities = len(cities)
-    cities = map(lambda city: city.lower(), cities)
+    cities = list(map(lambda city: city.lower(), cities))
     for ref in cities:
         if cacheSize == 0:
-            return num_cities*5
+            return len(cities)*5
         if not ref in cache:
             if len(cache) < cacheSize:
                 cache.append(ref)
