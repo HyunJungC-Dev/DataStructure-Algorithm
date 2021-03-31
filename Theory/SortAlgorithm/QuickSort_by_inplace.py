@@ -1,6 +1,6 @@
 def quick_sort(x):
     def recursion(x, left_first_idx, right_last_idx):
-        if left_first_idx >= right_last_idx:
+        if left_first_idx >= right_last_idx:  # 탈출 조건 = 가장 작은 경우
             return
 
         pivot_idx = (left_first_idx+right_last_idx)//2
@@ -33,5 +33,8 @@ def quick_sort(x):
 
 
 arr = [8, 6, 2, 1, 4, 7, 5, 3]
+quick_sort(arr)
+print(arr)
+arr = [14, 11, 9, 8, 6, 15, 10, 2, 13, 1, 4, 11, 7, 5, 12, 3]
 quick_sort(arr)
 print(arr)
