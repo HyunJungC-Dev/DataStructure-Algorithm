@@ -15,17 +15,17 @@ Programmers Skill Test Level 2 Pass Code And Capture
 + Programmers_SkillTest_level1_Capture .PNG
 
 
-## lecture / list_implemtation
+## Theory / list_implemtation
 + ArrayList.py is list implemtated as an array
 + SinglyLinkedList.py
 + DoublyLinkedList.py
 
-## lecture / Stack-Queue
+## Theory / Stack-Queue
 + LinearQueue.py
 + LinkedQueue.py
 + CircularQueue.py
 + ComposedLinkedQueue.py
 
-## lecture / Stack-Queue
+## Theory / Stack-Queue
 + CompleteBinaryTree.py
 + NodeCompleteBinaryTree.py
