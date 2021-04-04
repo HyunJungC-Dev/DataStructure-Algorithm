@@ -7,7 +7,7 @@ def solution(distance, rocks, n):
     left, right = 0, distance
     while left <= right:
         mid = (left + right) // 2
-        min_distance = -1
+        min_distance = float('inf')
         current = 0
         remove_cnt = 0
 
