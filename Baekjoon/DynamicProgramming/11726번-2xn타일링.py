@@ -3,6 +3,8 @@ n = int(input())
 
 
 def solution(n):
+    if n < 3:
+        return n
     x = 1
     y = 2
     for _ in range(n-2):
