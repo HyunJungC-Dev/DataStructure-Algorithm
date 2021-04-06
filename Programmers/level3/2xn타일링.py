@@ -1,7 +1,4 @@
 # 점화식 dp[n] = dp[n-1] + dp[n-2]
-n = int(input())
-
-
 def solution(n):
     if n < 3:
         return n
@@ -9,7 +6,4 @@ def solution(n):
     y = 2
     for _ in range(n-2):
         x, y = y, x+y
-    return y % 10007
-
-
-print(solution(n))
+    return y % 1000000007
