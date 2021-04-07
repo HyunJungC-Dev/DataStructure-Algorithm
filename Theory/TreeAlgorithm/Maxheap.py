@@ -22,10 +22,11 @@ class MaxHeap:
         pass
 
     def peek(self):
-        pass
+        return self.arr[1]
 
     def is_empty(self):
-        pass
+        return len(self.arr)-1 == 1
+
 
 myMH = MaxHeap()
 myMH.push(1)
@@ -35,3 +36,5 @@ myMH.push(4)
 myMH.push(7)
 myMH.push(5)
 print(myMH.arr)
+print(myMH.peek())
+print(myMH.is_empty())
