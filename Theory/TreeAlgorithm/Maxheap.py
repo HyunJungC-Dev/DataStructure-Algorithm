@@ -19,6 +19,8 @@ class MaxHeap:
             return
 
     def pop(self):
+        if self.is_empty():
+            return None
         root_val = self.arr[1]
         replace_root_val = self.arr[-1]
         del self.arr[-1]
