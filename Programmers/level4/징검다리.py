@@ -1,23 +1,43 @@
+def solve(target, max_dist, rocks):
+    removed = 0
+    min_dist = max_dist
+    for rock in rocks[::-1]:
+        diff = max_dist - rock
+        if diff < target:
+            removed += 1
+        else:
+            min_dist = diff
+            break
+
+    current = 0
+    if removed > 0:
+        rocks = rocks[:-removed]
+
+    for rock in rocks:
+        diff = rock - current
+        if diff < target:
+            removed += 1
+        else:
+            current = rock
+            min_dist = min(min_dist, diff)
+
+    return removed, min_dist
+
+
 def solution(distance, rocks, n):
     answer = 0
     rocks.sort()
-    rocks.append(distance)
-    left = 0
-    right = distance
+    left, right = 1, distance
+
     while left <= right:
-        mid = left + (right-left)//2
-        removed_rocks_cnt = 0
-        curr = 0
-        for rock in rocks:
-            between_distance = rock - curr
-            if between_distance < mid:
-                removed_rocks_cnt += 1
-            else:
-                curr = rock
-        if removed_rocks_cnt <= n:
-            answer = mid  # answer보다 mid가 항상 크다.
-            left = mid+1
+        mid = (left + right) // 2
+
+        removed, min_dist = solve(mid, distance, rocks)
+
+        if removed > n:
+            right = mid - 1
         else:
-            right = mid-1
+            answer = max(min_dist, answer)
+            left = mid + 1
 
     return answer
