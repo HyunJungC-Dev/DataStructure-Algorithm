@@ -52,6 +52,8 @@ class MaxHeap:
         return root_val
 
     def peek(self):
+        if self.is_empty():
+            return None
         return self.arr[1]
 
     def is_empty(self):
