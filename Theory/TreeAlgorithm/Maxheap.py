@@ -19,7 +19,35 @@ class MaxHeap:
             return
 
     def pop(self):
-        pass
+        root_val = self.arr[1]
+        replace_root_val = self.arr[-1]
+        del self.arr[-1]
+        self.arr[1] = replace_root_val
+        root_idx = 1
+        left_idx = 1*2
+        right_idx = 1*2+1
+
+        while root_idx <= len(self.arr)-1:
+            if left_idx > len(self.arr)-1:
+                break
+            if right_idx > len(self.arr)-1:
+                if self.arr[root_idx] < self.arr[left_idx]:
+                    self.arr[root_idx], self.arr[left_idx] = self.arr[left_idx], self.arr[root_idx]
+                else:
+                    break
+            if self.arr[root_idx] < self.arr[left_idx] or self.arr[root_idx] < self.arr[right_idx]:
+                if self.arr[left_idx] < self.arr[right_idx]:
+                    self.arr[root_idx], self.arr[right_idx] = self.arr[right_idx], self.arr[root_idx]
+                    root_idx = right_idx
+                else:
+                    self.arr[root_idx], self.arr[left_idx] = self.arr[left_idx], self.arr[root_idx]
+                    root_idx = left_idx
+
+                left_idx = root_idx*2
+                right_idx = root_idx*2+1
+            else:
+                break
+        return root_val
 
     def peek(self):
         return self.arr[1]
@@ -36,5 +64,5 @@ myMH.push(4)
 myMH.push(7)
 myMH.push(5)
 print(myMH.arr)
-print(myMH.peek())
-print(myMH.is_empty())
+myMH.pop()
+print(myMH.arr)
