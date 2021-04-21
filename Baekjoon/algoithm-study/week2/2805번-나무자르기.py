@@ -8,7 +8,7 @@ max_h = max(tree)
 answer = 0
 
 
-def binary_search(s, e):
+def binary_search(s, e):  # s : start, e: end
     global answer
     if s > e:
         return
