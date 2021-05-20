@@ -5,7 +5,6 @@ for i in range(n):
 
 
 def recursive(s_i, s_j, k):  # start i, start j
-
     is_all_1 = True
     is_all_0 = True
     for i in range(s_i, s_i+k):
