@@ -23,16 +23,6 @@ def recursive(s_i, s_j, k):  # start i, start j
 
 recursive(0, 0, n)
 
-# tmp = n
-# k = 0
-# while tmp != 1:
-#     tmp //= 3
-#     k += 1
-# for curr_k in range(k):
-#     blank_loc = [idx for idx in range(n) if(idx//3**curr_k) % 3 == 1]
-#     for i in blank_loc:
-#         for j in blank_loc:
-#             star[i][j] = " "
 for i in range(n):
     for j in range(n):
         print(star[i][j], end='')
