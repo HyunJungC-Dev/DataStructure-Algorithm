@@ -2,16 +2,13 @@ import itertools
 
 n = int(input())
 k = int(input())
-nums = []
+cards = []
 for _ in range(n):
-    nums.append(input())
+    cards.append(input())
 
-all_make = list(itertools.permutations(nums, k))
 
 removed_overlap = set()
-for cards in all_make:
-    tmp = ""
-    for card in cards:
-        tmp += card
-    removed_overlap.add(tmp)
+
+for cards in itertools.permutations(cards, k):
+    removed_overlap.add(''.join(cards))
 print(len(removed_overlap))
