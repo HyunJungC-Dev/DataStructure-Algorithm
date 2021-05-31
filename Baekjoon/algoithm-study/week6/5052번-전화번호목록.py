@@ -1,4 +1,5 @@
 import collections
+# append할 때 확인 가능: * 삽입 시 child가 있거나 * 을 만나면 일관성이 없는 것 -> 보다 효율적
 
 
 class Node:
